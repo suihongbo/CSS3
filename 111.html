@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>js增添li元素</title>
+</head>
+<body>
+<ul id='ul1' onClick="add()">
+    <li>点击这里增加一个li行</li>
+</ul>
+<script>
+    var cnt = 1; // 用于行计数
+    function add() {
+        var elem_li = document.createElement('li'); // 生成一个 li元素
+        elem_li.innerHTML = '这是增加的一行' + cnt ++; // 设置元素的内容
+        document.getElementById('ul1').appendChild(elem_li); // 添加到UL中去
+    }
+</script>
+</body>
