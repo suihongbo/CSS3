@@ -157,25 +157,37 @@
                 if(iNow == 0){
                     iNow = aDiv.length;
                 }
-                for(var i=0; i<24; i++){
+                /*for(var i=0; i<24; i++){
                     aSpan[i].style.backgroundImage = 'url(img/'+(iNow)+'.jpg)';
-                }
+                }*/
             }else {
                 iNow++;
                 if(iNow == aDiv.length+1){
                     iNow = 1;
                 }
-                for(var i=0; i<aDiv.length ; i++){
+                /*for(var i=0; i<aDiv.length ; i++){
                     aSpan[i].style.backgroundImage = 'url(img/'+(iNow)+'.jpg)';
-                }
+                }*/
             }
+            var arr = [];
+            for(var i=0; i<aDiv.length; i++){
+                arr.push(i);
+            }
+
+            arr.sort(function(){
+                return Math.random()-0.5;
+            });
+            var timer = setInterval(function(){
+                var random = arr.pop();
+                var oSpan =  aDiv[random].getElementsByTagName('span')[0];
+                oSpan.style.backgroundImage = 'url(img/'+iNow+'.jpg)';
+                if(arr.length == 0){
+                    clearInterval(timer);
+                }
+            },20);
         }
+
     }
-
-
-
-
-
         /*var oImg = new Image();
 
         oImg.onload = function () {
